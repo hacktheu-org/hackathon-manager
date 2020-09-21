@@ -60,7 +60,6 @@ class QuestionnaireTest < ActiveSupport::TestCase
   should allow_value("Unisex - L").for(:shirt_size)
   should allow_value("Unisex - XL").for(:shirt_size)
   should allow_value("Unisex - 2XL").for(:shirt_size)
-  should allow_value("Unisex - 3XL").for(:shirt_size)
   should_not allow_value("M").for(:shirt_size)
   should_not allow_value("foo").for(:shirt_size)
 
@@ -101,7 +100,6 @@ class QuestionnaireTest < ActiveSupport::TestCase
   should allow_value('foo.com').for(:portfolio_url)
   should allow_value('github.com/foo', 'bitbucket.org/sman591').for(:vcs_url)
   should allow_value('https://github.com/foo', 'https://bitbucket.org/sman591').for(:vcs_url)
-  should_not allow_value('http://foo.com', 'https://bar.com').for(:vcs_url)
 
   context "#school" do
     should "return nil if no school set" do

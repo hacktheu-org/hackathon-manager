@@ -31,7 +31,7 @@
 
         = f.input :shirt_size, as: :select, collection: Questionnaire::POSSIBLE_SHIRT_SIZES, include_blank: "(select one...)", input_html: { "data-validate" => "presence" }
 
-        = f.input :dietary_restrictions, as: :text, label: "Health restrictions", wrapper_html: { class: 'input--half' }, maxlength: Questionnaire::DIETARY_SPECIAL_NEEDS_MAX_LENGTH
+        = f.input :shipping_address, as: :text, label: "Shipping address", hint: "Please provide us an address to which we can ship your swag and potential prizes.", wrapper_html: { class: 'input--half' }, maxlength: 255
         = f.input :special_needs, as: :text, label: "Special needs", wrapper_html: { class: 'input--half' }, maxlength: Questionnaire::DIETARY_SPECIAL_NEEDS_MAX_LENGTH
 
         = f.input :portfolio_url, label: "Portfolio/LinkedIn link", placeholder: "https://linkedin.com/company/hacktheu"
@@ -44,7 +44,7 @@
           = f.input :resume, hint: "Must be a PDF, under 2MB", required: true, input_html: { "data-validate" => "presence file-max-size file-content-type", "data-validate-file-max-size" => "2097152", "data-validate-file-content-type" => "application/pdf" }, label: "Resume"
         = f.input :can_share_info, as: :radio_buttons, collection: { " Yes please!" => true, " No, thank you." => false }, label: "Share info with sponsors?", hint: "Our sponsors will receive your registration information, such as resume, for recruiting purposes"
 
-        = f.input :why_attend, label: "What are you looking forward to most during #{HackathonConfig['name']}?", placeholder: "Let us know what you would like to see at #{HackathonConfig['name']} in a sentence or two!", input_html: { rows: 3, maxlength: 500 }
+        = f.input :why_attend, label: "What are you looking forward to most at #{HackathonConfig['name']}?", placeholder: "Let us know what you would like to see at #{HackathonConfig['name']} in a sentence or two!", input_html: { rows: 3, maxlength: 500 }
 
 
       %hr

@@ -157,6 +157,7 @@ class Manage::QuestionnairesController < Manage::ApplicationController
       :phone, :can_share_info, :code_of_conduct_accepted,
       :travel_not_from_school, :travel_location, :data_sharing_accepted,
       :graduation_semester, :race_ethnicity, :resume, :delete_resume, :why_attend,
+      :shipping_address,
       :bus_list_id, :is_bus_captain, :boarded_bus
     )
   end

@@ -1,7 +1,3 @@
-- if HackathonManager.field_enabled?(:why_attend)
-  %p
-    %b Why #{HackathonConfig['name']}?
-  %p= @questionnaire.why_attend.presence || "(not provided)"
 %p
   %b Experience:
   = Questionnaire::POSSIBLE_EXPERIENCES[@questionnaire.experience]
@@ -18,11 +14,15 @@
   %b Shirt size:
   = @questionnaire.shirt_size
 %p
-  %b Dietary restrictions
-  = @questionnaire.dietary_restrictions || "<i>(none)</i>".html_safe
-%p
   %b Special needs
   = @questionnaire.special_needs || "<i>(none)</i>".html_safe
+%p
+  %b Shipping address
+  = @questionnaire.shipping_address || "<i>(none)</i>".html_safe
+- if HackathonManager.field_enabled?(:why_attend)
+  %p
+    %b Why #{HackathonConfig['name']}?
+  %p= @questionnaire.why_attend.presence || "(not provided)"
 
 %fieldset
   - if @questionnaire.user.provider == 'mlh'
