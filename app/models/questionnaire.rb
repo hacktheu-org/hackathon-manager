@@ -21,7 +21,7 @@ class Questionnaire < ApplicationRecord
   validates_uniqueness_of :user_id
 
   validates_presence_of :phone, :date_of_birth, :school_id, :experience, :shirt_size, :interest
-  validates_presence_of :gender, :major, :level_of_study, :graduation_year, :race_ethnicity
+  validates_presence_of :gender, :major, :level_of_study, :graduation_semester, :race_ethnicity
   validates_presence_of :agreement_accepted, message: "Please read & accept"
   validates_presence_of :code_of_conduct_accepted, message: "Please read & accept"
   validates_presence_of :data_sharing_accepted, message: "Please read & accept"
@@ -78,7 +78,7 @@ class Questionnaire < ApplicationRecord
     "rsvp_denied"    => "RSVP Denied"
   }.freeze
 
-  POSSIBLE_GRAD_YEARS = (Date.today.year - 1...Date.today.year + 7).to_a.freeze
+  POSSIBLE_GRAD_SEMESTERS = (Date.today.year - 1...Date.today.year + 7).to_a.product(["Spring", "Summer", "Fall"]).map { |x, y| y + " " + x.to_s }.freeze
 
   POSSIBLE_RACE_ETHNICITIES = [
     "American Indian or Alaskan Native",
@@ -119,6 +119,7 @@ class Questionnaire < ApplicationRecord
   # validates_inclusion_of :school_id, :in => School.select(:id)
   validates_inclusion_of :shirt_size, in: POSSIBLE_SHIRT_SIZES
   validates_inclusion_of :acc_status, in: POSSIBLE_ACC_STATUS
+  validates_inclusion_of :graduation_semester, in: POSSIBLE_GRAD_SEMESTERS
 
   def email
     user&.email
