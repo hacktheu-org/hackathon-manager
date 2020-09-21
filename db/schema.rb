@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_042543) do
+ActiveRecord::Schema.define(version: 2020_09_21_052458) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -204,7 +204,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_042543) do
     t.string "portfolio_url"
     t.string "vcs_url"
     t.integer "user_id"
-    t.boolean "agreement_accepted", default: false
+    t.boolean "agreement_accepted", default: true
     t.string "acc_status", default: "pending"
     t.integer "acc_status_author_id"
     t.datetime "acc_status_date"
