@@ -33,13 +33,6 @@
         .row
           %dt.col-md-4 Shirt size
           %dd.col-md-8= @questionnaire.shirt_size
-          %dt.col-md-4 Dietary restrictions
-          %dd.col-md-8
-            - if @questionnaire.dietary_restrictions.present?
-              %span.fa.fa-exclamation-triangle.text-warning.icon-space-r-half
-              = @questionnaire.dietary_restrictions
-            - else
-              %span.text-muted (none)
           %dt.col-md-4 Special needs
           %dd.col-md-8
             - if @questionnaire.special_needs.present?
@@ -77,9 +70,12 @@
       .card-body
         .row
           - if HackathonManager.field_enabled?(:why_attend)
-            %dt.col-md-4 Why #{HackathonConfig['name']}?
+            %dt.col-md-4 What are you looking forward to most at #{HackathonConfig['name']}?
             %dd.col-md-8
               = @questionnaire.why_attend.presence || not_provided
+          %dt.col-md-4 Shipping address
+          %dd.col-md-8
+            = @questionnaire.shipping_address || not_provided
           %dt.col-md-4 Experience
           %dd.col-md-8
             = Questionnaire::POSSIBLE_EXPERIENCES[@questionnaire.experience]
