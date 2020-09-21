@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_30_172450) do
+ActiveRecord::Schema.define(version: 2020_09_21_033212) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -225,9 +225,9 @@ ActiveRecord::Schema.define(version: 2020_05_30_172450) do
     t.string "interest"
     t.text "why_attend"
     t.datetime "boarded_bus_at"
-    t.integer "graduation_year"
     t.string "race_ethnicity"
     t.integer "bus_list_id"
+    t.string "graduation_semester"
     t.index ["bus_list_id"], name: "index_questionnaires_on_bus_list_id"
     t.index ["user_id"], name: "index_questionnaires_on_user_id"
   end

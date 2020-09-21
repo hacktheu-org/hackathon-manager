@@ -314,7 +314,7 @@ class Manage::QuestionnairesControllerTest < ActionController::TestCase
               gender: @questionnaire.gender,
               major: @questionnaire.major,
               why_attend: @questionnaire.why_attend,
-              graduation_year: @questionnaire.graduation_year,
+              graduation_semester: @questionnaire.graduation_semester,
               race_ethnicity: @questionnaire.race_ethnicity
             }
           }
