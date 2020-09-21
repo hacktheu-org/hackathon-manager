@@ -36,10 +36,15 @@
 
         = f.input :portfolio_url, label: "Portfolio/LinkedIn link", placeholder: "https://linkedin.com/company/hacktheu"
         = f.input :vcs_url, label: "GitHub/Bitbucket link", placeholder: "https://github.com/hacktheu-org"
-        = f.input :resume, as: :deletable_attachment, hint: "Must be a PDF, under 2MB", input_html: { "data-validate" => "file-max-size file-content-type", "data-validate-file-max-size" => "2097152", "data-validate-file-content-type" => "application/pdf" }, label: "Resume"
-        = f.input :can_share_info, as: :radio_buttons, collection: { " Yes please!" => true, " No, thank you." => false }, label: "Share info with sponsors?", hint: "Our sponsors would receive info such as your name, email, resume, GitHub link, etc"
+        - if @questionnaire.resume.attached?
+          = f.input :resume, hint: "If desired, upload new resume. Must be a PDF, under 2MB.", required: false, input_html: { "data-validate" => "file-max-size file-content-type", "data-validate-file-max-size" => "2097152", "data-validate-file-content-type" => "application/pdf" }, label: "Upload New Resume"
+          .view-current-resume-link
+            = link_to("View Currently Uploaded Resume &raquo;".html_safe, @questionnaire.resume)
+        - else
+          = f.input :resume, hint: "Must be a PDF, under 2MB", required: true, input_html: { "data-validate" => "presence file-max-size file-content-type", "data-validate-file-max-size" => "2097152", "data-validate-file-content-type" => "application/pdf" }, label: "Resume"
+        = f.input :can_share_info, as: :radio_buttons, collection: { " Yes please!" => true, " No, thank you." => false }, label: "Share info with sponsors?", hint: "Our sponsors will receive your registration information, such as resume, for recruiting purposes"
 
-        = f.input :why_attend, label: "Why #{HackathonConfig['name']}?", placeholder: "In a sentence or two, why would you like to attend #{HackathonConfig['name']}?", input_html: { rows: 3, maxlength: 280 }
+        = f.input :why_attend, label: "What are you looking forward to most during #{HackathonConfig['name']}?", placeholder: "Let us know what you would like to see at #{HackathonConfig['name']} in a sentence or two!", input_html: { rows: 3, maxlength: 500 }
 
 
       %hr

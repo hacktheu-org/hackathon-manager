@@ -36,6 +36,9 @@ class Questionnaire < ApplicationRecord
 
   has_one_attached :resume
   deletable_attachment :resume
+  
+  validates_presence_of :resume, if: -> { !resume.attached? }
+  
   validates :resume, file_size: { less_than_or_equal_to: 2.megabytes },
                      file_content_type: { allow: ['application/pdf'] },
                      if: -> { resume.attached? }
