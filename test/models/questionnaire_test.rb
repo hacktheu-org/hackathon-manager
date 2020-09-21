@@ -50,21 +50,17 @@ class QuestionnaireTest < ActiveSupport::TestCase
   should allow_value("expert").for(:experience)
   should_not allow_value("foo").for(:experience)
 
-  should allow_value("design").for(:interest)
   should allow_value("software").for(:interest)
   should allow_value("hardware").for(:interest)
   should_not allow_value("foo").for(:interest)
 
-  should allow_value("Women's - XS").for(:shirt_size)
-  should allow_value("Women's - S").for(:shirt_size)
-  should allow_value("Women's - M").for(:shirt_size)
-  should allow_value("Women's - L").for(:shirt_size)
-  should allow_value("Women's - XL").for(:shirt_size)
   should allow_value("Unisex - XS").for(:shirt_size)
   should allow_value("Unisex - S").for(:shirt_size)
   should allow_value("Unisex - M").for(:shirt_size)
   should allow_value("Unisex - L").for(:shirt_size)
   should allow_value("Unisex - XL").for(:shirt_size)
+  should allow_value("Unisex - 2XL").for(:shirt_size)
+  should allow_value("Unisex - 3XL").for(:shirt_size)
   should_not allow_value("M").for(:shirt_size)
   should_not allow_value("foo").for(:shirt_size)
 

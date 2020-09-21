@@ -47,29 +47,25 @@ class Questionnaire < ApplicationRecord
   strip_attributes
 
   POSSIBLE_EXPERIENCES = {
-    "first"       => "This is my 1st hackathon!",
-    "experienced" => "My feet are wet. (1-5 hackathons)",
-    "expert"      => "I'm a veteran hacker. (6+ hackathons)"
+    "first"       => "This is my first hackathon.",
+    "experienced" => "I have attended 1 to 5 hackathons.",
+    "expert"      => "I have attended 6+ hackathons."
   }.freeze
 
   POSSIBLE_INTERESTS = {
-    "design"      => "Design",
     "software"    => "Software",
     "hardware"    => "Hardware",
-    "combination" => "Combination of everything!"
+    "combination" => "Software & Hardware"
   }.freeze
 
   POSSIBLE_SHIRT_SIZES = [
-    "Women's - XS",
-    "Women's - S",
-    "Women's - M",
-    "Women's - L",
-    "Women's - XL",
     "Unisex - XS",
     "Unisex - S",
     "Unisex - M",
     "Unisex - L",
-    "Unisex - XL"
+    "Unisex - XL",
+    "Unisex - 2XL",
+    "Unisex - 3XL"
   ].freeze
 
   POSSIBLE_ACC_STATUS = {
@@ -82,7 +78,7 @@ class Questionnaire < ApplicationRecord
     "rsvp_denied"    => "RSVP Denied"
   }.freeze
 
-  POSSIBLE_GRAD_YEARS = (Date.today.year - 3...Date.today.year + 7).to_a.freeze
+  POSSIBLE_GRAD_YEARS = (Date.today.year - 1...Date.today.year + 7).to_a.freeze
 
   POSSIBLE_RACE_ETHNICITIES = [
     "American Indian or Alaskan Native",
