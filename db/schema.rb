@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_033212) do
+ActiveRecord::Schema.define(version: 2020_09_21_042543) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -213,7 +213,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_033212) do
     t.integer "checked_in_by_id"
     t.datetime "checked_in_at"
     t.string "phone"
-    t.boolean "can_share_info", default: false
+    t.boolean "can_share_info", default: true
     t.boolean "code_of_conduct_accepted", default: false
     t.text "special_needs"
     t.string "gender"
