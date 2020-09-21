@@ -42,12 +42,12 @@
             = f.input :graduation_semester, as: :select, collection: Questionnaire::POSSIBLE_GRAD_SEMESTERS, include_blank: "(select one...)", label: "Graduation semester", input_html: { "data-validate" => "presence" }, wrapper_html: { class: 'input--half' }
             = f.input :race_ethnicity, as: :select, collection: Questionnaire::POSSIBLE_RACE_ETHNICITIES, include_blank: "(select one...)", label: "Race/Ethnicity", input_html: { "data-validate" => "presence" }, wrapper_html: { class: 'input--half' }
 
-            = f.input :resume, as: :deletable_attachment, hint: "Must be under 2MB", input_html: { "data-validate" => "file-max-size file-content-type", "data-validate-file-max-size" => "2097152", "data-validate-file-content-type" => "application/pdf" }, label: "Resume (PDF)"
+            = f.input :resume, hint: "Must be under 2MB", required: true, input_html: { "data-validate" => "presence file-max-size file-content-type", "data-validate-file-max-size" => "2097152", "data-validate-file-content-type" => "application/pdf" }, label: "Resume (PDF)"
 
             = f.input :portfolio_url, label: "Portfolio Link"
             = f.input :vcs_url, label: "GitHub/BitBucket"
 
-            = f.input :can_share_info, label: "Share resume with employers?"
+            = f.input :can_share_info, label: "Share info with employers?"
 
       .col-xl-6
         .card.mb-4
