@@ -51,13 +51,6 @@
       .form-inputs
         .supporting-text
           Please read the
-          = link_to asset_url(HackathonConfig['agreement_pdf_asset']), target: '_blank' do
-            #{HackathonConfig['name']} Agreement
-            %span.fa.fa-external-link.icon-space-l-half
-        = f.input :agreement_accepted, as: :formatted_boolean, label: "I read & accept the #{HackathonConfig['name']} agreement.", input_html: { "data-validate" => "presence" }
-
-        .supporting-text
-          Please read the
           %a{ href:"http://static.mlh.io/docs/mlh-code-of-conduct.pdf", target: "_blank" }
             MLH Code of Conduct
             %span.fa.fa-external-link.icon-space-l-half
