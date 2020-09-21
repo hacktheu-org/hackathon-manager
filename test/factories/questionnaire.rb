@@ -4,7 +4,7 @@ FactoryBot.define do
     international { false }
     date_of_birth { Date.today - 20.years }
     experience { "first" }
-    interest { "design" }
+    interest { "software" }
     school_id { create(:school).id }
     shirt_size { "Unisex - M" }
     dietary_restrictions { "" }
