@@ -13,7 +13,12 @@ class QuestionnairesController < ApplicationController
   def show
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @questionnaire }
+      j = @questionnaire.as_json
+      j[:email]    = @questionnaire.email
+      j[:name]     = @questionnaire.user.full_name
+      j[:role]     = @questionnaire.user.role
+      #j[:username] = nil
+      format.json { render json: j}
     end
   end
 
