@@ -8,7 +8,10 @@ class UsersController < ApplicationController
 
   def show
     respond_to do |format|
-      format.json { render json: current_user }
+      # format.json { render json: current_user }
+      j = current_user.as_json
+      j[:name]     = current_user.first_name + " " + current_user.last_name
+      format.json { render json: j }
     end
   end
 end
